@@ -119,3 +119,7 @@ install(DIRECTORY doc/ DESTINATION ${INSTALL_DOCDIR}
   PATTERN "*.adoc" EXCLUDE
   PATTERN "Makefile" EXCLUDE
 )
+
+# ------------------------------------------------------------------------------
+# Install examples directory
+install(DIRECTORY examples DESTINATION ${INSTALL_DOCDIR})
