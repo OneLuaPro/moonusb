@@ -27,9 +27,9 @@
 #include <stdlib.h>
 #include "tree.h"
 #include "udata.h"
-#include "lua.h"
-#include "lauxlib.h"
-#include "lualib.h"
+#include <lua.h>
+#include <lauxlib.h>
+#include <lualib.h>
 
 struct moonusb_udata_s {
     RB_ENTRY(moonusb_udata_s) entry;

@@ -130,7 +130,8 @@ static int Submit_control_transfer(lua_State *L)
     ud = newtransfer(L, 0, devhandle);
     transfer = (transfer_t*)ud->handle;
     Reference(L, 5, ud->ref1);
-    libusb_fill_control_transfer(transfer, devhandle, ptr, Callback, NULL, timeout);
+    libusb_fill_control_transfer(transfer, devhandle, ptr,
+				 (libusb_transfer_cb_fn) Callback, NULL, timeout);
     return Submit(L, transfer, ud, 1);
     }
 
@@ -148,7 +149,7 @@ static int Submit_bulk_transfer(lua_State *L)
     transfer = (transfer_t*)ud->handle;
     Reference(L, 6, ud->ref1);
     libusb_fill_bulk_transfer(transfer, devhandle, endpoint, ptr, length,
-            Callback, NULL, timeout);
+			      (libusb_transfer_cb_fn) Callback, NULL, timeout);
     return Submit(L, transfer, ud, 1);
     }
 
@@ -167,7 +168,7 @@ static int Submit_bulk_stream_transfer(lua_State *L)
     transfer = (transfer_t*)ud->handle;
     Reference(L, 7, ud->ref1);
     libusb_fill_bulk_stream_transfer(transfer, devhandle, endpoint, stream_id, ptr, length,
-            Callback, NULL, timeout);
+            (libusb_transfer_cb_fn) Callback, NULL, timeout);
     return Submit(L, transfer, ud, 1);
     }
 
@@ -185,7 +186,7 @@ static int Submit_interrupt_transfer(lua_State *L)
     transfer = (transfer_t*)ud->handle;
     Reference(L, 6, ud->ref1);
     libusb_fill_interrupt_transfer(transfer, devhandle, endpoint, ptr, length,
-            Callback, NULL, timeout);
+            (libusb_transfer_cb_fn) Callback, NULL, timeout);
     return Submit(L, transfer, ud, 1);
     }
 
@@ -207,7 +208,7 @@ static int Submit_iso_transfer(lua_State *L)
     Reference(L, 8, ud->ref1);
     libusb_set_iso_packet_lengths(transfer, iso_packet_length);
     libusb_fill_iso_transfer(transfer, devhandle, endpoint, ptr, length,
-           num_iso_packets, Callback, NULL, timeout);
+           num_iso_packets, (libusb_transfer_cb_fn) Callback, NULL, timeout);
     return Submit(L, transfer, ud, 1);
     }
 

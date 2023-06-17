@@ -23,6 +23,12 @@
  * SOFTWARE.
  */
 
+#if defined(WIN32) && defined(_MSC_VER)
+#define  DLL __declspec(dllexport)
+#else
+#define  DLL //empty
+#endif
+
 #include "internal.h"
 
 lua_State *moonusb_L;
@@ -37,7 +43,7 @@ static void AtExit(void)
     }
 
  
-int luaopen_moonusb(lua_State *L)
+DLL int luaopen_moonusb(lua_State *L)
 /* Lua calls this function to load the module */
     {
     moonusb_L = L;

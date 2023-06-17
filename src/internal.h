@@ -34,6 +34,12 @@
 #include <time.h>
 #include "moonusb.h"
 
+#if defined(WIN32) && defined(_MSC_VER)
+#define  DLL __declspec(dllexport)
+#else
+#define  DLL //empty
+#endif
+
 #define TOSTR_(x) #x
 #define TOSTR(x) TOSTR_(x)
 
@@ -168,7 +174,7 @@ extern int trace_objects;
 
 /* main.c */
 extern lua_State *moonusb_L;
-int luaopen_moonusb(lua_State *L);
+DLL int luaopen_moonusb(lua_State *L);
 void moonusb_open_enums(lua_State *L);
 //void moonusb_open_flags(lua_State *L);
 void moonusb_open_tracing(lua_State *L);

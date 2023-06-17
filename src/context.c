@@ -117,7 +117,7 @@ static int Set_log_cb(lua_State *L)
         mode = LIBUSB_LOG_CB_GLOBAL;
         Reference(L, 2, log_cb_ref);
         }
-    libusb_set_log_cb(context, LogCallback, mode);
+    libusb_set_log_cb(context, (libusb_log_cb) LogCallback, mode);
     return 0;
     }
 

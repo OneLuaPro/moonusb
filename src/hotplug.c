@@ -91,7 +91,7 @@ static int Hotplug_register(lua_State *L)
      * we must create the userdata before registering the callback.
      */
     ec = libusb_hotplug_register_callback(context, events, flags, vendor_id, product_id, 
-            dev_class, Callback, hotplug, &(hotplug->cb_handle));
+	    dev_class, (libusb_hotplug_callback_fn) Callback, hotplug, &(hotplug->cb_handle));
     if(ec)
         { ud->destructor(L, ud); CheckError(L, ec); return 0; }
     return 1;

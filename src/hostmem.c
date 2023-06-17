@@ -28,7 +28,7 @@
 #if defined(LINUX)
 #define AlignedAlloc aligned_alloc
 #define AlignedFree  free
-#elif defined(MINGW)
+#elif defined(MINGW) || defined(WIN32)
 #define AlignedAlloc _aligned_malloc
 #define AlignedFree  _aligned_free
 #else
