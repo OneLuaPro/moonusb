@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # repo from which this fork was made
-or="https://github.com/lunarmodules/luafilesystem.git"
+or="https://github.com/stetre/moonusb.git"
 
 # get basename of current dir
 bn=$(basename $(pwd))
