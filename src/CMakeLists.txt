@@ -46,9 +46,9 @@ target_sources(moonusb
 # ------------------------------------------------------------------------------
 # Installation instructions
 install(
-  TARGETS moonusb FILE_SET HEADERS
+  TARGETS moonusb # FILE_SET HEADERS			# no install currently
   RUNTIME DESTINATION ${INSTALL_TOP_CDIR}
-  PUBLIC_HEADER DESTINATION ${INSTALL_INCLUDEDIR}
+  # PUBLIC_HEADER DESTINATION ${INSTALL_INCLUDEDIR}	# no install currently
 )
 
 # ------------------------------------------------------------------------------
