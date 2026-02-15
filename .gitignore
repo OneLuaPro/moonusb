@@ -10,3 +10,5 @@ core.*
 local/
 src/TODO
 src/DIFF
+*.*~
+build64
