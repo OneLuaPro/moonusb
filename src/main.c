@@ -23,12 +23,6 @@
  * SOFTWARE.
  */
 
-#if defined(WIN32) && defined(_MSC_VER)
-#define  DLL __declspec(dllexport)
-#else
-#define  DLL //empty
-#endif
-
 #include "internal.h"
 
 lua_State *moonusb_L;
